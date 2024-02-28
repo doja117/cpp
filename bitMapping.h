@@ -101,6 +101,40 @@ int returnMSB(int num){
     }   return pos;
 }
 
+int convertStringBinaryToInt(string s){
+    int cnt=0;
+    int ans=0;
+    for (int i=s.size()-1;i>=0;i++){
+        int flag=0;
+        if (s[i]=='1')  flag=1;
+        ans+=(int)pow(2,cnt)*flag;
+    }   return ans;
+}
+int divide(int x,int y){
+    bool check=false;
+    if (x>0 && y>0){
+        check=false;
+    }
+    if (x<0 && y<0){
+        check=false;
+        x=~x+1;
+        y=~y+1;
+    }
+    
+    else {
+        check=true;
+        if (x<0){
+            x=~x+1;
+        } else if (y<0){
+            y=~y+1;
+        }
+    }   int ans=0;
+       while (y<=x){
+            y=y<<1;
+            ans+=1;
+    }   if (check==true){return -1*ans;}   
+    return ans;
+}
 int rangeBitwiseAnd(int left,int right){
     //cout<<returnMSB(left)<<" "<<returnMSB(right)<<"\n";
     if (returnMSB(left)!=returnMSB(right)) return 0;

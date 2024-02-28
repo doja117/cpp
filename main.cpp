@@ -1,6 +1,7 @@
-#include "bitMapping.h"
+#include "test.h"
 #include<iostream>
 #include<vector>
 int main(){
-    cout<<rangeBitwiseAnd(7,5);
+    std::cout<<addBinary("11","1");
+    return 0;
 }
