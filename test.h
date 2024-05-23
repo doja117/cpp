@@ -24,17 +24,6 @@ string returnStringFromInt(int n){
     }   return new_ans;
 }
 
-string addBinary(string s1,string s2){
+string addBinary(string s1,string s2){ 
     return returnStringFromInt(returnIntFromBinaryString(s1)+returnIntFromBinaryString(s2));
-}
-
-
-string addBinaryForReal(string s1,string s2){
-    if (s1.length()>s2.length()) return addBinaryForReal(s2,s1);
-    int cnt=0;
-    int i=s1.length()-1;
-    int j=s2.length()-1;
-    while (i>=0 && j>=0){
-        if s1[i]=="1" && s[j]=="1"   
-    }
 }

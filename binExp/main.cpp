@@ -1,6 +1,6 @@
 #include <iostream>
-using namespace std;
-const int mod=1e9+7;
+#include<string>
+#include "funcs.h"
 int modPowr(int a,int b){
     int res=1;
     while (b){
@@ -19,10 +19,5 @@ int solveLockerSpoj(int n){
 }
 int main() {
 	// your code goes here
-	int t;	cin>>t;
-	while(t--){
-		int n;cin>>n;
-		cout<<solveLockerSpoj(n)<<"\n";
-	}
-	return 0;
+    cout<<returnModFastPower(2,60);
 }

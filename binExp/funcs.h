@@ -1,39 +1,41 @@
 typedef long long ll;
-#include<iostream>
-#include<cmath>
+using namespace std;
 const int mod=1e9+7;
-
-
-double myPow(double x,ll n){
-    if (x==1)   return 1;
-    if (n<0)    return myPow(1/x,-1*n);
-    double res=1;
-    while (n!=0){
-        if (n&1)    res*=x;
-        n=n>>1;
-        x*=x;
-    }   return res;
-}
-int powr(int a,int b){
-    int res=1;
-    while (b){
-        if (b & 1)  res*=a,res%=mod;
-        a*=a;a%=mod;
-        b/=2;
-    }   return res; 
+#include<cstring>
+#include<cmath>
+#include<climits>
+void testFunc(){
+    pow(2,10);
 }
 
-int modPowr(int a,int b){
-    int res=1;
-    while (b){
-        if (b&1)    res*=a,res%=mod;
-        a*=a;   a%=mod;
-        b/=2;
-    }   return res;
+ll fastPower(ll a,ll b){
+    ll ans=1;
+    ll flag=1;
+    while (flag<=b){
+        if (flag&b)    {ans*=a;}
+        a*=a; flag=flag<<1;   
+    }   return ans;
 }
 
-int solveLockerSpoj(int n){
-    if (n<4)    return n;
-    int flag=((int)(n/3)-1);
-    return modPowr(3,flag)*((n-3*flag)%mod)
+int returnModFastPower(ll a,ll b){
+    int ans=1;
+    ll flag=1;
+    while (flag<=b){
+        if (flag&b) {
+            ans=((ans%mod)*(a%mod))%mod;
+        }
+        a=((a%mod)*(a%mod))%mod;    flag=flag<<1;
+    }   return ans;
+}
+
+string solve(int A,int B, int C){
+    if (A==B){return "=";}
+    ll a=(ll)A;
+    ll b=(ll)B;
+    ll c=(ll)C;
+    ll fac=fastPower(a,c);
+    ll fbc=fastPower(b,c);
+    if (fac>fbc){return ">";}
+    if (fac==fbc){return "=";}
+    return "<";
 }

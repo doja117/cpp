@@ -110,6 +110,16 @@ int convertStringBinaryToInt(string s){
         ans+=(int)pow(2,cnt)*flag;
     }   return ans;
 }
+
+double Pow(double x,int n){
+    double res=1;
+    if (n<0)    x=1/x,n*=-1;
+    while (n){
+        if (n&1)    res*=x;
+        x*=x;   n/=2;
+    }   return res;
+
+}
 int divide(int x,int y){
     bool check=false;
     if (x>0 && y>0){
